@@ -13,7 +13,7 @@ const Friend = () => {
                 <SimpleBanner title="Friends~">
                     <StaticImage
                         className="banner__image"
-                        src="../../static/84647109_p0.jpg"
+                        src="../../static/微信图片_20210905203714.jpg"
                         alt="Ro&SOPII"
                     />
                 </SimpleBanner>
