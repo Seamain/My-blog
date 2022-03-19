@@ -120,7 +120,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              bagseye and Seamain
+              bagseye and Seamain&Jimmy
             </a>
             <span>.</span>
           </p>
