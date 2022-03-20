@@ -10,6 +10,9 @@ const useLatestPost = () => {
           title
           tags
           createdDate
+          author {
+            name
+          }
         }
       }
     }

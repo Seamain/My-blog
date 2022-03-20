@@ -1,8 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 import FriendItems from "./FriendItems"
 import FriendItem from "./FriendItem"
-import Button from "../Button/Button"
 import useAllFriend from "../../hooks/use-all-friend";
 
 const AllFriend = ({ title, introduction }) => {

@@ -10,8 +10,6 @@ import ReactMarkdown from "react-markdown";
 const PostTemplate = ({data}) => {
     const post = data.directus.article_by_id
 
-    console.log(data)
-
     const createdAt = new Date(post.createdDate).toDateString()
 
     return (
@@ -22,6 +20,9 @@ const PostTemplate = ({data}) => {
                   {post.title && <h1 className="blogsingle__title">{post.title}</h1>}
                   {createdAt && (
                       <p className="blogsingle__date">Posted on {createdAt}</p>
+                  )}
+                  {post.author.name && (
+                      <p className="blogsingle__date">Author is {post.author.name}</p>
                   )}
                   {post.content && (
                       <article className="blogsingle__content">

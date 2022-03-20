@@ -10,6 +10,9 @@ const useAllBlogPost = () => {
           title
           tags
           createdDate
+          author {
+            name
+          }
         }
       }
     }
