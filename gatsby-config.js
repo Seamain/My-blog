@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Seamain Studio`,
+        name: `Seamain's blog`,
         short_name: `Seamain`,
         start_url: `/`,
         background_color: `#6e83ce`,
