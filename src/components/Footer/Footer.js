@@ -122,6 +122,11 @@ const Footer = () => {
             >
               bagseye and Seamain&Jimmy
             </a>
+
+            <a href="https://icp.gov.moe/?keyword=20220546"
+               target="_blank"
+            >萌ICP备20220546号
+            </a>
             <span>.</span>
           </p>
         </div>
