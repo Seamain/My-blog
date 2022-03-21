@@ -34,7 +34,7 @@ const PostTemplate = ({data}) => {
                   )}
               </PostSingleStyles>
           </section>
-          <LatestPosts title="Further reading from Seamain" />
+          <LatestPosts title="还可以阅读以下文章，所有文章的最终解释权会文章作者所有" />
       </Layout>
     </>
   )
