@@ -38,13 +38,14 @@ export const FooterMenuStyles = styled.div`
     width: 33.333%;
   }
 
+  //大标题下面的线
   h5 {
     margin-top: 0;
     display: inline-block;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #3a7cde;
 
     a {
-      color: #fff;
+      color: #e71010;
       text-decoration: none;
     }
   }
@@ -106,14 +107,14 @@ export const FooterMenuStyles = styled.div`
         &:hover,
         &:focus {
           a {
-            color: #fff;
+            color: #e00f0f;
           }
         }
       }
     }
   }
 `
-
+//页脚文字
 export const CopyrightStyles = styled.div`
   font-size: 13px;
   padding-top: var(--gap);

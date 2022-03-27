@@ -74,7 +74,7 @@ export const PostItemStyles = styled(Link)`
     margin-top: auto;
 
     p {
-      color: #777;
+      color: #3a7cde;
       font-weight: 700;
       font-size: 16px;
     }
@@ -91,7 +91,7 @@ export const PostItemStyles = styled(Link)`
   }
 
   &:hover {
-    color: #fff;
+    color: #6e83ce;
     border-color: var(--primary);
     background-color: #151515;
     box-shadow: var(--boxShadow);
