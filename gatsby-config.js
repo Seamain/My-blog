@@ -77,8 +77,7 @@ module.exports = {
                     guid: `${site.siteMetadata.siteUrl}/blog/${article.slug}`,
                     custom_elements: [
                       {
-                        "content:encoded": article.content,
-                        "title": article.title
+                        "content:encoded": new (require("showdown")).Converter().makeHtml(article.content),
                       }
                     ]
                   })
