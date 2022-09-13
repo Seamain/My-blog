@@ -37,19 +37,70 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Seamain's blog`,
+    //     short_name: `Seamain`,
+    //     start_url: `/`,
+    //     background_color: `#6e83ce`,
+    //     theme_color: `#3742bf`,
+    //     // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+    //     // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+    //     display: `standalone`,
+    //     icon: `src/images/icon.png`, // This path is relative to the root of the site.
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-feed`,
       options: {
-        name: `Seamain's blog`,
-        short_name: `Seamain`,
-        start_url: `/`,
-        background_color: `#6e83ce`,
-        theme_color: `#3742bf`,
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: `standalone`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
-      },
-    },
+        query: `
+         {
+                  site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+            }
+          }
+         }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, directus } }) => {
+                return directus.article.map(article => {
+                  return Object.assign({}, {
+                    title: article.title,
+                    description: article.title,
+                    date: article.createdDate,
+                    url: encodeURI(`${site.siteMetadata.siteUrl}/blog/${article.slug}`),
+                    guid: `${site.siteMetadata.siteUrl}/blog/${article.slug}`,
+                    custom_elements: [
+                      {
+                        "content:encoded": article.content,
+                        "title": article.title
+                      }
+                    ]
+                  })
+                })
+            },
+            query: `
+              {
+                directus {
+                  article {
+                    title
+                    createdDate
+                    slug
+                    content
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Seamain'
+          }
+        ]
+      }
+    }
   ],
 }

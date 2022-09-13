@@ -15,4 +15,8 @@ export const menuItems = [
     path: "/friend",
     text: "friends",
   },
+  {
+    path: "/rss.xml",
+    text: "RSS",
+  },
 ]
