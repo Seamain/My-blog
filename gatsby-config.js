@@ -68,7 +68,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, directus } }) => {
-                return directus.article.map(article => {
+                return directus.article.reverse().map(article => {
                   return Object.assign({}, {
                     title: article.title,
                     description: article.title,
