@@ -45,6 +45,8 @@ const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
+    const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+
 
     const articles = (
         await graphql(`
@@ -59,7 +61,8 @@ exports.createPages = async ({ graphql, actions }) => {
         `)
     ).data.graphcms.articles
 
-    articles.forEach(article => {
+    for (const article of articles) {
+
         console.log(`${article.slug} 已被创建`)
 
         createPage({
@@ -69,5 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 id: article.id
             }
         })
-    })
+
+        await delay(500)
+    }
 }
