@@ -25,9 +25,9 @@ module.exports = {
     {
       resolve: "gatsby-source-graphql",
       options: {
-        typeName: "Directus",
-        fieldName: "directus",
-        url: "https://t3tmqp0w.directus.app/graphql",
+        typeName: "graphcms",
+        fieldName: "graphcms",
+        url: "https://api-ap-northeast-1.hygraph.com/v2/cle4ane6v051f01ulfrynb3jf/master",
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -67,8 +67,8 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, directus } }) => {
-                return directus.article.reverse().map(article => {
+            serialize: ({ query: { site, graphcms } }) => {
+                return graphcms.articles.reverse().map(article => {
                   return Object.assign({}, {
                     title: article.title,
                     description: article.title,
@@ -84,15 +84,15 @@ module.exports = {
                 })
             },
             query: `
-              {
-                directus {
-                  article {
-                    title
-                    createdDate
-                    slug
-                    content
+              query feed {
+                  graphcms {
+                      articles(first: 13, orderBy: createdDateTime_DESC) {
+                          title
+                          createdDate: createdDateTime
+                          slug
+                          content
+                      }
                   }
-                }
               }
             `,
             output: '/rss.xml',

@@ -2,21 +2,21 @@ import { graphql, useStaticQuery } from "gatsby"
 
 const useAllBlogPost = () => {
   const articles = useStaticQuery(graphql`
-    query {
-      directus {
-        article(sort: ["-id"]) {
+    query articles {
+      graphcms {
+        articles(orderBy: createdDateTime_DESC) {
           id
           slug
           title
           tags
-          createdDate
-          author {
+          createdDate: createdDateTime
+          authors {
             name
           }
         }
       }
     }
-  `).directus.article
+  `).graphcms.articles
 
   return articles
 }

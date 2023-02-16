@@ -2,16 +2,16 @@ import { graphql, useStaticQuery } from "gatsby"
 
 const useAllFriend = () => {
   const friends = useStaticQuery(graphql`
-    query {
-      directus {
-        Friend {
+    query friends {
+      graphcms {
+        firends {
           name
-          url
-          bio
+          url: link
+          bio: about
         }
       }
     }
-  `).directus.Friend
+  `).graphcms.firends
 
   return friends
 }

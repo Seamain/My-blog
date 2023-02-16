@@ -48,18 +48,20 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const articles = (
         await graphql(`
-            query {
-                directus {
-                    article {
+            query createArticle {
+                graphcms {
+                    articles(first: 100) {
                         id
                         slug
                     }
                 }
             }
         `)
-    ).data.directus.article
+    ).data.graphcms.articles
 
     articles.forEach(article => {
+        console.log(`${article.slug} 已被创建`)
+
         createPage({
             path: `/blog/${article.slug}`,
             component: path.resolve('./src/templates/post-template.js'),

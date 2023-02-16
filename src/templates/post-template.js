@@ -8,9 +8,9 @@ import Layout from "../components/Layout"
 import ReactMarkdown from "react-markdown";
 
 const PostTemplate = ({data}) => {
-    const post = data.directus.article_by_id
+    const post = data.graphcms.article
 
-    const createdAt = new Date(post.createdDate).toDateString()
+    const createdAt = new Date(post.createdDateTime).toDateString()
 
     return (
     <>
@@ -21,9 +21,7 @@ const PostTemplate = ({data}) => {
                   {createdAt && (
                       <p className="blogsingle__date">Posted on {createdAt}</p>
                   )}
-                  {post.author.name && (
-                      <p className="blogsingle__date">Author is {post.author.name}</p>
-                  )}
+                  {post.authors.map(author => (<p className="blogsingle__date">Author is {author.name}</p>))}
                   {post.content && (
                       <article className="blogsingle__content">
                           <ReactMarkdown>{post.content}</ReactMarkdown>
@@ -41,14 +39,14 @@ const PostTemplate = ({data}) => {
 }
 
 export const query = graphql`
-    query($id: ID!){
-        directus {
-            article_by_id(id: $id) {
+    query($id: ID!) {
+        graphcms {
+            article(where: {id: $id}) {
                 title
                 tags
                 content
-                createdDate
-                author {
+                createdDateTime
+                authors {
                     name
                 }
             }
