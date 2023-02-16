@@ -1,5 +1,7 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require(`path`)
+const pLimit = require('p-limit')
+const limit = pLimit(5)
 
 // exports.onCreateNode = ({ node, getNode, actions }) => {
 //     const { createNodeField } = actions
@@ -59,15 +61,27 @@ exports.createPages = async ({ graphql, actions }) => {
         `)
     ).data.graphcms.articles
 
-    articles.forEach(article => {
-        console.log(`${article.slug} 已被创建`)
 
-        createPage({
-            path: `/blog/${article.slug}`,
-            component: path.resolve('./src/templates/post-template.js'),
-            context: {
-                id: article.id
-            }
+    // articles.forEach(article => {
+    //     console.log(`${article.slug} 已被创建`)
+    //
+
+    // })
+
+    await Promise.all(
+        articles.map(async article => {
+            await limit(async () => {
+                console.log(article.title)
+
+                createPage({
+                    path: `/blog/${article.slug}`,
+                    component: path.resolve('./src/templates/post-template.js'),
+                    context: {
+                        id: article.id
+                    }
+                })
+            })
         })
-    })
+    )
+
 }
