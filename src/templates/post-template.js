@@ -41,7 +41,7 @@ const PostTemplate = ({data}) => {
 export const query = graphql`
     query($id: ID!) {
         graphcms {
-            article(where: {id: $id}) {
+            article (where: {id: $id}) {
                 title
                 tags
                 content
