@@ -14,11 +14,11 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^15.12.1",
-    "@contentful/rich-text-types": "^15.12.1",
-    "@fontsource/heebo": "^4.5.13",
-    "dotenv": "^16.0.2",
-    "framer-motion": "^7.3.2",
+    "@contentful/rich-text-react-renderer": "^15.16.2",
+    "@contentful/rich-text-types": "^16.0.2",
+    "@fontsource/heebo": "^4.5.15",
+    "dotenv": "^16.0.3",
+    "framer-motion": "^10.0.1",
     "gatsby": "^4.23.0",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-feed": "^4.23.0",
@@ -34,21 +34,21 @@
     "gatsby-source-graphql": "^4.23.0",
     "gatsby-transformer-sharp": "^4.23.0",
     "gbimage-bridge": "^0.2.2",
-    "gsap": "^3.11.1",
-    "p-limit": "^3.1.0",
+    "gsap": "^3.11.4",
+    "p-limit": "^4.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-icons": "^4.4.0",
-    "react-image-gallery": "^1.2.9",
-    "react-markdown": "^8.0.3",
+    "react-icons": "^4.8.0",
+    "react-image-gallery": "^1.2.11",
+    "react-markdown": "^8.0.5",
     "sharp": "^0.30.1",
     "showdown": "^2.1.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.8"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.0.7",
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.4"
   },
   "repository": {
     "type": "git",

@@ -16,7 +16,7 @@ module.exports = {
     instagramUsername: "barcadia",
     linkedinUsername: "morgan-baker-development",
     image: "/macbook-color.jpg",
-    siteUrl: "https://seamain.studio",
+    siteUrl: "https://seamain.org",
     developerName: "Morgan Baker Development",
     developerUrl: "https://www.morganbaker.dev",
   },
