@@ -1,7 +1,7 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require(`path`)
 const pLimit = require('p-limit')
-const limit = pLimit(5)
+const limit = pLimit(3)
 
 // exports.onCreateNode = ({ node, getNode, actions }) => {
 //     const { createNodeField } = actions
